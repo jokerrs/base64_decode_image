@@ -14,14 +14,18 @@
 
                 $type = strtolower($type[ 1 ]);
 
+                $jpg = array( 'jpg', 'jpeg', 'jpe', 'jif', 'jfif', 'jfi' );
+                $svg = array( 'svg', 'svgz' );
+                $bmp = array( 'bmp', 'dib' );
+
                 if ( in_array('jpg', $AllowedFormats) )
-                    array_push($AllowedFormats, array( 'jpeg', 'jpe', 'jif', 'jfif', 'jfi' ));
+                    $AllowedFormats = array_merge($AllowedFormats, $jpg);
 
                 if ( in_array('svg', $AllowedFormats) )
-                    array_push($AllowedFormats, array( 'svgz' ));
+                    $AllowedFormats = array_merge($AllowedFormats, $svg);
 
                 if ( in_array('bmp', $AllowedFormats) )
-                    array_push($AllowedFormats, array( 'dib' ));
+                    $AllowedFormats = array_merge($AllowedFormats, $bmp);
 
                 $return = true;
 
@@ -29,15 +33,13 @@
                     $return = false;
 
                 if ( $Format != NULL ) {
-                    $jpg = array( 'jpg', 'jpeg', 'jpe', 'jif', 'jfif', 'jfi' );
+
                     if ( in_array($type, $jpg) )
                         $type = 'jpg';
 
-                    $svg = array( 'svg', 'svgz' );
                     if ( in_array($type, $svg) )
                         $type = 'svg';
 
-                    $bmp = array( 'bmp', 'dib' );
                     if ( in_array($type, $bmp) )
                         $type = 'bmp';
                 }
