@@ -1,4 +1,5 @@
- /**
+<?php
+         /**
          * @param $main_image
          * @param null||jpg $format
          * @return array|bool
