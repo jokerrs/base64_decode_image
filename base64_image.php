@@ -17,7 +17,7 @@
                 }
 
                 $jpg = array('jpg', 'jpeg');
-                if(in_array($type, $jpg) && $format != null){
+                if(in_array($type, $jpg) && $format != NULL){
                     $type = $format;
                 }
 
