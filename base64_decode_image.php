@@ -10,6 +10,19 @@
             if(preg_match('/^data:image/(\w+);base64,/', $image, $type)){
                 $Base64Image = substr($Base64Image, strpos($Base64Image, ',') + 1);
                 $type = strtolower($type[1]);
+                 
+                if(in_array('jpg' ,$AllowedFormats)){
+                    array_push($AllowedFormats, array ('jpeg', 'jpe', 'jif', 'jfif', 'jfi'));
+                }
+                    
+                if(in_array('svg', $AllowedFormats)){
+                    array_push($AllowedFormats, array ('svgz'));
+                }
+                    
+                if(in_array('bmp', $AllowedFormats)){
+                    array_push($AllowedFormats, array ('dib'));
+                }   
+                    
                 $AllowedExt = $AllowedFormats;
                 $return = true;
                 if(!in_array($type, $AllowedExt)){
