@@ -1,12 +1,12 @@
 <?php
          /**
-         * @param $main_image
+         * @param $image
          * @param null||jpg $format
          * @return array|bool
          */
-        function base64_image($main_image, $format = NULL){
-            if(preg_match('/^data:image\/(\w+);base64,/', $main_image, $type)){
-                $main_image = substr($main_image, strpos($main_image, ',') + 1);
+        function base64_image($image, $format = NULL){
+            if(preg_match('/^data:image\/(\w+);base64,/', $image, $type)){
+                $image = substr($image, strpos($image, ',') + 1);
                 $type = strtolower($type[1]);
                 $AllowedExt = array('jpg', 'jpeg', 'gif', 'png');
 
@@ -21,15 +21,15 @@
                     $type = 'jpg';
                 }
 
-                $main_image = base64_decode($main_image);
+                $image = base64_decode($image);
 
-                if($main_image === false){
+                if($image === false){
                     $return = false;
                 }
 
                 if($return) {
                     $return = array(
-                        'file' => $main_image,
+                        'file' => $image,
                         'type' => $type
                     );
                 }
