@@ -6,7 +6,7 @@
          * @param int|null $Format = 1; 
          * @return array|bool
          */
-        function base64_image($Base64Image, $AllowedFormats, $Format = NULL){
+        function base64_decode_image($Base64Image, $AllowedFormats, $Format = NULL){
             if(preg_match('/^data:image/(\w+);base64,/', $image, $type)){
                 $Base64Image = substr($Base64Image, strpos($Base64Image, ',') + 1);
                 $type = strtolower($type[1]);
