@@ -6,7 +6,7 @@
          * @param int|null $Format = 1;
          * @return array|bool
          */
-        function base64_decode_image($Base64Image, $AllowedFormats, $Format = NULL){
+function base64_decode_image($Base64Image, $AllowedFormats, $Format = NULL){
 
             if(preg_match(/** @lang text */ '/^data:image\/(\w+);base64,/', $Base64Image, $type)) {
 
@@ -14,18 +14,18 @@
 
                 $type = strtolower($type[ 1 ]);
 
-                $jpg = array( 'jpg', 'jpeg', 'jpe', 'jif', 'jfif', 'jfi' );
-                $svg = array( 'svg', 'svgz' );
-                $bmp = array( 'bmp', 'dib' );
+                $jpg = array( 'jpeg', 'jpe', 'jif', 'jfif', 'jfi' );
+                $svg = array( 'svgz' );
+                $bmp = array( 'dib' );
 
                 if ( in_array('jpg', $AllowedFormats) )
-                    $AllowedFormats = array_merge($AllowedFormats, $jpg);
+                    $AllowedFormats = array_merge($jpg, $AllowedFormats);
 
                 if ( in_array('svg', $AllowedFormats) )
-                    $AllowedFormats = array_merge($AllowedFormats, $svg);
+                    $AllowedFormats = array_merge($svg, $AllowedFormats);
 
                 if ( in_array('bmp', $AllowedFormats) )
-                    $AllowedFormats = array_merge($AllowedFormats, $bmp);
+                    $AllowedFormats = array_merge($bmp, $AllowedFormats);
 
                 $return = true;
 
