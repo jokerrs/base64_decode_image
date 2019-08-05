@@ -1,14 +1,14 @@
 <?php
 
-        /**
-         * @param string $image base64 image
+/**
+         * @param $base64_image
          * @param array $AllowedFormats
-         * @param null|string $format string is 'jpg'
+         * @param string = 'jpg'|null $format string is 'jpg'
          * @return array|bool
          */
-        function base64_image($image, $AllowedFormats, $format = NULL){
+        function base64_image($base64_image, $AllowedFormats, $format = NULL){
             if(preg_match('/^data:image/(\w+);base64,/', $image, $type)){
-                $image = substr($image, strpos($image, ',') + 1);
+                $base64_image = substr($base64_image, strpos($base64_image, ',') + 1);
                 $type = strtolower($type[1]);
                 $AllowedExt = $AllowedFormats;
                 $return = true;
@@ -21,8 +21,8 @@
                     $type = $format;
                 }
 
-                $image = base64_decode($image);
-                if($image === false){
+                $base64_image = base64_decode($base64_image);
+                if($base64_image === false){
                     $return = false;
                 }
                 if($return) {
