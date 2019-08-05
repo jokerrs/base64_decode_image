@@ -8,7 +8,7 @@
          */
         function base64_decode_image($Base64Image, $AllowedFormats, $Format = NULL){
 
-            if(preg_match('/^data:image\/(\w+);base64,/', $Base64Image, $type)) {
+            if(preg_match(/** @lang text */ '/^data:image\/(\w+);base64,/', $Base64Image, $type)) {
 
                 $Base64Image = substr($Base64Image, strpos($Base64Image, ',') + 1);
 
