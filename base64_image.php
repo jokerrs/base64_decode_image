@@ -27,7 +27,7 @@
                 }
                 if($return) {
                     $return = array(
-                        'file' => $image,
+                        'file' => $base64_image,
                         'type' => $type
                     );
                 }
