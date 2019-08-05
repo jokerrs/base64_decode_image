@@ -23,11 +23,9 @@
                 if ( in_array('bmp', $AllowedFormats) )
                     array_push($AllowedFormats, array( 'dib' ));
 
-                $AllowedExt = $AllowedFormats;
-
                 $return = true;
 
-                if ( !in_array($type, $AllowedExt) )
+                if ( !in_array($type, $AllowedFormats) )
                     $return = false;
 
                 if ( $Format != NULL ) {
