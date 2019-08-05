@@ -1,7 +1,7 @@
 <?php
          /**
          * @param $image
-         * @param null||jpg $format
+         * @param null|string $format string is 'jpg'
          * @return array|bool
          */
         function base64_image($image, $format = NULL){
@@ -17,8 +17,8 @@
                 }
 
                 $jpg = array('jpg', 'jpeg');
-                if(in_array($type, $jpg) && $format == 'jpg'){
-                    $type = 'jpg';
+                if(in_array($type, $jpg) && $format != null){
+                    $type = $format;
                 }
 
                 $image = base64_decode($image);
