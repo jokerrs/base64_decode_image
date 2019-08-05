@@ -1,6 +1,6 @@
 <?php
 
-/**
+         /**
          * @param $base64_image
          * @param array $AllowedFormats
          * @param string = 'jpg'|null $format string is 'jpg'
