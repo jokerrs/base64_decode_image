@@ -11,7 +11,7 @@
  * @param int|null $Format
  * @return array|null
  */
-function base64_decode_image(string $Base64Image,array $AllowedFormats,?int $Format = NULL): ?array
+function base64_decode_image(string $Base64Image,array $AllowedFormats,?int $Format = null): ?array
 {
 
     if(preg_match('/^data:image\/(\w+);base64,/', $Base64Image, $type)) {
@@ -42,7 +42,7 @@ function base64_decode_image(string $Base64Image,array $AllowedFormats,?int $For
             $return = false;
         }
 
-        if ( $Format !== NULL ) {
+        if ( $Format !== null ) {
 
             if ( in_array($type, $jpg, true) ) {
                 $type = 'jpg';
